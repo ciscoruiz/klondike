@@ -1,0 +1,14 @@
+@startuml
+[*] --> Initial
+
+state game_over <<choice>>
+
+Initial --> Opened_Game
+Opened_Game -> Closed_Game : Abort
+Opened_Game -> game_over : move_card
+game_over --> Closed_Game : [game_over]
+game_over --> Opened_Game
+
+Closed_Game --> [*]
+
+@enduml
