@@ -7,8 +7,10 @@ usecase "Waste to Foundation" as UC2
 usecase "Waste to Pile" as UC3
 usecase "Pile to Foundation" as UC4
 usecase "Pile to Pile" as UC5
-usecase "Foundation to Pile" as UC5
+usecase "Foundation to Pile" as UC6
 usecase "Abort Game" as UCN
+
+usecase "ValidMoveChecker" as MovementChecker
 
 Player --> UC0
 Player --> UC1
@@ -16,5 +18,13 @@ Player --> UC2
 Player --> UC3
 Player --> UC4
 Player --> UC5
+Player --> UC6
 Player --> UCN
+
+UC2 -.> MovementChecker : include
+UC3 -.> MovementChecker : include
+UC4 -.> MovementChecker : include
+UC5 -.> MovementChecker : include
+UC6 -.> MovementChecker : include
+
 @enduml

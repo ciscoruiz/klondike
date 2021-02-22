@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+   if (targetGroup is empty) then (false)
+      :firstSource = sourceGroup.head;
+      :lastTarget = targetGroup.tail;
+      if (//next//(lastTarget) == firstSource) then
+         if (//color//(lastTarget) == //color//(firstSource)) then
+            :return **true**;
+         else (false)
+            :return **false**;
+         endif
+      else (false)
+         :return **false**;
+      endif
+   else (true)
+      :return **true**;
+   endif
+stop
+
+@enduml

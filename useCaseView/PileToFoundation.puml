@@ -14,7 +14,7 @@ repeat while (Pile.isEmpty) is (true)
 repeat
    repeat
       :Player selects **Foundation**;
-   repeat while (Last card in **Foundation** matches the Suit\n on selected **Card**) is (false)
+   repeat while (**ValidMoveChecker**) is (false)
 repeat while (**Selected Card** follows value on **Foundation**) is (false)
 
 :Assign Card to the **Foundation**;

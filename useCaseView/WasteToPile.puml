@@ -7,7 +7,7 @@ partition WasteToPile {
 
 repeat
    :Player selects **Pile**;
-repeat while (Last card in **Pile** matches **Waste** card) is (false)
+repeat while (**ValidMoveChecker**) is (false)
 
 :Assign Card to the **Pile**;
 :OPENED_GAME;

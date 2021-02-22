@@ -12,7 +12,7 @@ repeat
 
    repeat
       :Player selects target **Pile**;
-   repeat while (First card in source **Foundation** matches the \nlast card in target **Pile**) is (false)
+   repeat while (**ValidMoveChecker**) is (false)
 repeat while (Player confirms move) is (false)
 
 :Remove Card from the source **FoundationT**;
