@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition Start {
+
+:N = 7;
+
+repeat
+      :Assign **N** cards to **Pile** number **N**;
+      :decrement N;
+      :Visualize the upper card;
+repeat while (N greather than 0) is (true)
+
+:OPENED_GAME;
+}
+
+stop
+
+@enduml

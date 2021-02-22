@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition FoundationToPile {
+
+repeat
+   repeat
+      :Player selects source **FoundationT**;
+   repeat while (FoundationT.isEmpty) is (true)
+
+   repeat
+      :Player selects target **Pile**;
+   repeat while (First card in source **Foundation** matches the \nlast card in target **Pile**) is (false)
+repeat while (Player confirms move) is (false)
+
+:Remove Card from the source **FoundationT**;
+:Assign Card to the target **Pile**;
+:OPENED_GAME;
+
+stop
+
+@enduml

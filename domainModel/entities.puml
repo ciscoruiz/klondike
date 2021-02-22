@@ -12,14 +12,14 @@ Group <|-down- Pile
 Group <|-down- Stock
 Group <|-down- Waste
 
-Klondike *-> "1" Tableaux
+Tableaux *-up-> "7" Pile
 Klondike *-up-> "1" Stock
 Klondike *-up-> "1" Waste
-
-Tableaux*-up-> "7" Pile
+Klondike *-left-> "1" Tableaux
+Klondike *-> "4" Foundation
 
 Foundation --> Suit
-Foundation -left--> "0..13" Card
+Foundation --> "0..13" Card
 @enduml
 
 

@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition PileToFoundation {
+
+repeat
+   :Player selects **Pile**;
+repeat while (Pile.isEmpty) is (true)
+
+:Select last card on **Pile**;
+
+repeat
+   repeat
+      :Player selects **Foundation**;
+   repeat while (Last card in **Foundation** matches the Suit\n on selected **Card**) is (false)
+repeat while (**Selected Card** follows value on **Foundation**) is (false)
+
+:Assign Card to the **Foundation**;
+
+if (All **Foundation** are completed) then (yes)
+   :[Game Over: Player **Wins**];
+   :CLOSED_GAME;
+else (false)
+   :OPENED_GAME;
+endif
+
+
+stop
+
+@enduml

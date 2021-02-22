@@ -3,12 +3,12 @@
 
 state game_over <<choice>>
 
-Initial --> Opened_Game
-Opened_Game -> Closed_Game : Abort
-Opened_Game -> game_over : move_card
-game_over --> Closed_Game : [game_over]
-game_over --> Opened_Game
+Initial --> OPENED_GAME
+OPENED_GAME -> CLOSED_GAME : Abort
+OPENED_GAME -> game_over : move_card
+game_over --> CLOSED_GAME : [game_over]
+game_over --> OPENED_GAME
 
-Closed_Game --> [*]
+CLOSED_GAME --> [*]
 
 @enduml

@@ -3,11 +3,12 @@ left to right direction
 
 usecase "Start" as UC0
 usecase "Stock to Waste" as UC1
-usecase "Waste to Fundation" as UC2
+usecase "Waste to Foundation" as UC2
 usecase "Waste to Pile" as UC3
-usecase "Pile to Fundation" as UC4
-usecase "Fundation to Pile" as UC5
-usecase "Abort" as UCN
+usecase "Pile to Foundation" as UC4
+usecase "Pile to Pile" as UC5
+usecase "Foundation to Pile" as UC5
+usecase "Abort Game" as UCN
 
 Player --> UC0
 Player --> UC1

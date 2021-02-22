@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition WasteToFoundation {
+
+repeat
+   repeat
+      :Player selects **Foundation**;
+   repeat while (Last card in **Foundation** matches the Suit) is (false)
+repeat while (**Waste Card** follows value on **Foundation**) is (false)
+:Assign Card to the **Foundation**;
+:OPENED_GAME;
+
+stop
+
+@enduml

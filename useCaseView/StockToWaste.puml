@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition StockToWaste {
+:Player wants to see a card from **Stock**;
+
+if (Stock.hasCards) then (true)
+  :Move upper card from **Stock** to **Waste**;
+  else (false)
+     if (Player can not move any other Card) then (true))
+        :[Game Over: Player **lost**];
+        :CLOSED_GAME;
+     endif
+endif
+
+stop
+
+@enduml
