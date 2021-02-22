@@ -1,0 +1,25 @@
+@startuml
+class Card
+
+enum Suit {
+ X-RED, X-BLACK, Y-RED, Y-BLACK
+}
+
+Card --> Suit
+
+Group -> "*" Card
+Group <|-down- Pile
+Group <|-down- Stock
+Group <|-down- Waste
+
+Klondike *-> "1" Tableaux
+Klondike *-up-> "1" Stock
+Klondike *-up-> "1" Waste
+
+Tableaux*-up-> "7" Pile
+
+Foundation --> Suit
+Foundation -left--> "0..13" Card
+@enduml
+
+
