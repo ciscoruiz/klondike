@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+usecase "Start" as UC0
+usecase "Stock to Waste" as UC1
+usecase "Waste to Fundation" as UC2
+usecase "Waste to Pile" as UC3
+usecase "Pile to Fundation" as UC4
+usecase "Fundation to Pile" as UC5
+usecase "Abort" as UCN
+
+Player --> UC0
+Player --> UC1
+Player --> UC2
+Player --> UC3
+Player --> UC4
+Player --> UC5
+Player --> UCN
+@enduml
