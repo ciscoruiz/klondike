@@ -18,6 +18,7 @@ repeat
 repeat while (**Selected Card** follows value on **Foundation**) is (false)
 
 :Assign Card to the **Foundation**;
+:Show Result;
 
 if (All **Foundation** are completed) then (yes)
    :[Game Over: Player **Wins**];
@@ -28,5 +29,4 @@ endif
 
 
 stop
-
 @enduml
