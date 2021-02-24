@@ -17,8 +17,8 @@ repeat while (Player confirms move) is (false)
 
 :Remove Card from the source **FoundationT**;
 :Assign Card to the target **Pile**;
+:Show Result;
 :OPENED_GAME;
 
 stop
-
 @enduml
