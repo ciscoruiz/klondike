@@ -8,6 +8,7 @@ partition StockToWaste {
 
 if (Stock.hasCards) then (true)
   :Move upper card from **Stock** to **Waste**;
+  :Show Result;
   else (false)
      if (Player can not move any other Card) then (true))
         :[Game Over: Player **lost**];
@@ -16,5 +17,4 @@ if (Stock.hasCards) then (true)
 endif
 
 stop
-
 @enduml
