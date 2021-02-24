@@ -21,6 +21,7 @@ repeat while (Player confirms move) is (false)
 
 :Remove Cards from the source **Pile**;
 :Assign Cards to the target **Pile**;
+:Show Result;
 :OPENED_GAME;
 
 stop
