@@ -10,8 +10,8 @@ repeat
 repeat while (**ValidMoveChecker**) is (false)
 
 :Assign Card to the **Pile**;
+:Show Result;
 :OPENED_GAME;
 
 stop
-
 @enduml
