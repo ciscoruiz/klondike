@@ -3,14 +3,14 @@
 
 start
 partition ValidMoveChecker {
-   if (targetGroup is empty) then (false)
-      :firstSource = sourceGroup.head;
-      :lastTarget = targetGroup.tail;
-      if (//next//(lastTarget) == firstSource) then
-         if (//color//(lastTarget) == //color//(firstSource)) then
-            :return **true**;
+   if (**targetGroup** is empty) then (false)
+      :firstSource = **sourceGroup**.head;
+      :lastTarget = **targetGroup**.tail;
+      if (//nextCard//(lastTarget) == firstSource) then (true)
+         if (**mustKeepColor**) then (true)
+            :return //color//(lastTarget) == //color//(firstSource);
          else (false)
-            :return **false**;
+            :return //color//(lastTarget) != //color//(firstSource);
          endif
       else (false)
          :return **false**;
@@ -21,5 +21,4 @@ partition ValidMoveChecker {
 }
 
 stop
-
 @enduml
