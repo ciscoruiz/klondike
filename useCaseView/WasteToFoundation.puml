@@ -13,6 +13,7 @@ repeat while (**Waste Card** follows value on **Foundation**) is (false)
 :Assign Card to the **Foundation**;
 :Show Result;
 :OPENED_GAME;
+}
 
 stop
 

@@ -23,6 +23,7 @@ repeat while (Player confirms move) is (false)
 :Assign Cards to the target **Pile**;
 :Show Result;
 :OPENED_GAME;
+}
 
 stop
 

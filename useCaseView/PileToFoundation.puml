@@ -26,7 +26,7 @@ if (All **Foundation** are completed) then (yes)
 else (false)
    :OPENED_GAME;
 endif
-
+}
 
 stop
 @enduml
