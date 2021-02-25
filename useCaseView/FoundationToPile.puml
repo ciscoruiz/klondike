@@ -20,5 +20,7 @@ repeat while (Player confirms move) is (false)
 :Show Result;
 :OPENED_GAME;
 
+}
+
 stop
 @enduml
