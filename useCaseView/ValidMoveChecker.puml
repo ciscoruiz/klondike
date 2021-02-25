@@ -2,6 +2,7 @@
 'https://plantuml.com/activity-diagram-beta
 
 start
+partition ValidMoveChecker {
    if (targetGroup is empty) then (false)
       :firstSource = sourceGroup.head;
       :lastTarget = targetGroup.tail;
@@ -17,6 +18,8 @@ start
    else (true)
       :return **true**;
    endif
+}
+
 stop
 
 @enduml
