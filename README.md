@@ -31,6 +31,7 @@ El siguiente diagrama muestra un diagrama de estado general:
 
 ## Priorización de casos de uso
     * Start
+    * Valid Move Checker
     * Stock to Waste
     * Waste to Pile
     * Waste to Fundation
@@ -42,6 +43,8 @@ El siguiente diagrama muestra un diagrama de estado general:
 ## Descripción detallada de los casos de uso
 
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/Start.puml)
+
+![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/ValidMoveChecker.puml)
 
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/StockToWaste.puml)
 
