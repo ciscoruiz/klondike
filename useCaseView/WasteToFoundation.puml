@@ -4,12 +4,10 @@
 start
 
 partition WasteToFoundation {
-
+:Player selects the upper card on **Waste** and move it to some Foundation;
 repeat
-   repeat
-      :Player selects **Foundation**;
-   repeat while (**ValidMoveChecker**) is (false)
-repeat while (**Waste Card** follows value on **Foundation**) is (false)
+   :Player selects **Foundation**;
+repeat while (**ValidMoveChecker**) is (false)
 :Assign Card to the **Foundation**;
 :Show Result;
 :OPENED_GAME;
