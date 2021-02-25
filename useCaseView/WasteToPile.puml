@@ -11,7 +11,14 @@ repeat while (**ValidMoveChecker**) is (false)
 
 :Assign Card to the **Pile**;
 :Show Result;
-:OPENED_GAME;
+
+if (All **Foundation** are completed) then (yes)
+   :[Game Over: Player **Wins**];
+   :CLOSED_GAME;
+else (false)
+   :OPENED_GAME;
+endif
+
 }
 
 stop
