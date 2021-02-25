@@ -2,14 +2,14 @@
 left to right direction
 
 usecase "Start" as UC0
-usecase "Stock to Waste" as UC1
-usecase "Waste to Foundation" as UC2
-usecase "Waste to Pile" as UC3
-usecase "Pile to Foundation" as UC4
-usecase "Pile to Pile" as UC5
-usecase "Foundation to Pile" as UC6
-usecase "Show Result" as UC7
-usecase "Abort Game" as UCN
+usecase "StockToWaste" as UC1
+usecase "WasteToFoundation" as UC2
+usecase "WasteToPile" as UC3
+usecase "PileToFoundation" as UC4
+usecase "PileToPile" as UC5
+usecase "FoundationToPile" as UC6
+usecase "ShowResult" as UC7
+usecase "AbortGame" as UCN
 
 usecase "ValidMoveChecker" as MovementChecker
 
