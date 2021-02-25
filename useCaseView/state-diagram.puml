@@ -3,12 +3,17 @@
 
 state game_over <<choice>>
 
-Initial --> OPENED_GAME
+Initial --> OPENED_GAME : Start
 OPENED_GAME -> CLOSED_GAME : Abort
-OPENED_GAME -> game_over : move_card
+OPENED_GAME -> game_over : PileToPile
+OPENED_GAME -> game_over : FoundationToPile
+OPENED_GAME -> game_over : WasteToFoundation
+OPENED_GAME -> game_over : WasteToPile
+OPENED_GAME -> game_over : PileToFoundation
+OPENED_GAME -> game_over : StockToWaste
+
 game_over --> CLOSED_GAME : [game_over]
-game_over --> OPENED_GAME
+game_over --> OPENED_GAME : [continue game]
 
 CLOSED_GAME --> [*]
-
 @enduml
