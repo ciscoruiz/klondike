@@ -1,8 +1,7 @@
 @startuml
-class Card
 
 enum Suit {
- X-RED, X-BLACK, Y-RED, Y-BLACK
+ Hearts, Spades, Diamonds, Clubs
 }
 
 Card --> Suit
@@ -11,15 +10,27 @@ Group -> "*" Card
 Group <|-down- Pile
 Group <|-down- Stock
 Group <|-down- Waste
+Group <|-down- Foundation
 
-Tableaux *-up-> "7" Pile
-Klondike *-up-> "1" Stock
-Klondike *-up-> "1" Waste
-Klondike *-left-> "1" Tableaux
-Klondike *-> "4" Foundation
+
+Tableaux *-down-> "7" Pile
+Klondike *-down-> "1" Stock
+Klondike *-down-> "1" Waste
+Klondike *-down-> "1" Tableaux
+Klondike *-down-> "4" Foundation
+Klondike *-down-> "1" Player
 
 Foundation --> Suit
-Foundation --> "0..13" Card
+
+Player..>Movement
+
+Movement <|-- FoundationToPile
+Movement <|-- PileToFoundation
+Movement <|-- PileToPile
+Movement <|-- StockToWaste
+Movement <|-- WasteToFoundation
+Movement <|-- WasteToPile
+
 @enduml
 
 

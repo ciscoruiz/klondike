@@ -10,8 +10,7 @@ y en la imagen de una versión muy conocida:
 
 Las fechas indican los movimientos que estan permitidos entre los distintos grupos de cartas.
 
-Correspondiente a los distintos montones de cartas que intervienen en el juego hemos extraído el siguiente diagrama
-de clases:
+Correspondiente a los distintos montones de cartas que intervienen en el juego hemos extraído el siguiente modelo de dominio:
 
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/domainModel/entities.puml)
 
