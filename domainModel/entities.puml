@@ -30,6 +30,7 @@ Movement <|-- PileToPile
 Movement <|-- StockToWaste
 Movement <|-- WasteToFoundation
 Movement <|-- WasteToPile
+Movement <|-- WasteToStock
 
 @enduml
 

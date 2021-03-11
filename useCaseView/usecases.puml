@@ -1,37 +1,32 @@
 @startuml
 left to right direction
 
-usecase "Start" as UC0
-usecase "StockToWaste" as UC1
-usecase "WasteToFoundation" as UC2
-usecase "WasteToPile" as UC3
-usecase "PileToFoundation" as UC4
-usecase "PileToPile" as UC5
-usecase "FoundationToPile" as UC6
-usecase "ShowResult" as UC7
-usecase "AbortGame" as UCN
+usecase "StartGame" as StartGame
+usecase "MoveFromStockToWaste" as UC1
+usecase "MoveFromWasteToFoundation" as UC2
+usecase "MoveFromWasteToPile" as UC3
+usecase "MoveFromPileToFoundation" as UC4
+usecase "MoveFromPileToPile" as UC5
+usecase "MoveFromFoundationToPile" as UC6
+usecase "MoveFromWasteToStock" as UC7
+usecase "ShowGame" as ShowGame
+usecase "AbortGame" as AbortGame
 
-usecase "ValidMoveChecker" as MovementChecker
-
-Player --> UC0
+Player --> StartGame
 Player --> UC1
 Player --> UC2
 Player --> UC3
 Player --> UC4
 Player --> UC5
 Player --> UC6
-Player --> UCN
+Player --> UC7
+Player --> AbortGame
 
-UC2 -.> MovementChecker : include
-UC3 -.> MovementChecker : include
-UC4 -.> MovementChecker : include
-UC5 -.> MovementChecker : include
-UC6 -.> MovementChecker : include
-
-UC1 -.> UC7 : include
-UC2 -.> UC7 : include
-UC3 -.> UC7 : include
-UC4 -.> UC7 : include
-UC5 -.> UC7 : include
-UC6 -.> UC7 : include
+UC1 -.> ShowGame : include
+UC2 -.> ShowGame : include
+UC3 -.> ShowGame : include
+UC4 -.> ShowGame : include
+UC5 -.> ShowGame : include
+UC6 -.> ShowGame : include
+UC7 -.> ShowGame : include
 @enduml
