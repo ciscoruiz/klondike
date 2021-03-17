@@ -1,21 +1,12 @@
 @startuml
-'https://plantuml.com/activity-diagram-beta
 
-start
+hide empty description
 
-partition Start {
-
-:N = 7;
-
-repeat
-      :Assign **N** cards to **Pile** number **N**;
-      :decrement N;
-      :Visualize the upper card;
-repeat while (N greather than 0) is (true)
-
-:OPENED_GAME;
-}
-
-stop
+[*] -> INITIAL
+INITIAL --> S1: Player ask to start game
+S1 --> S2: The system shows 7 initialized piles from 1 to 7 cards with the last one facing up
+S2 --> S3: The system shows the stock with the rest of cards
+S3 --> OPENED_GAME: The system lets to MoveFromStockToWaste, MoveFromWasteToFoundation, \n MoveFromWasteToPile, MoveFromPileToFoundation, MoveFromPileToPile,\n MoveFromFoundationToPile and MoveFromWasteToStock
+OPENED_GAME -> [*]
 
 @enduml
