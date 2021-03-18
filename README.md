@@ -41,10 +41,10 @@ El siguiente diagrama muestra un diagrama de estado general:
 
 ## Descripción detallada de los casos de uso
 
+### Start Game
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/Start.puml)
 
-![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/ValidMoveChecker.puml)
-
+### Move From Stock To Waste
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/StockToWaste.puml)
 
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/WasteToPile.puml)

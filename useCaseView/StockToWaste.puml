@@ -1,22 +1,19 @@
-@startuml
-'https://plantuml.com/activity-diagram-beta
+@startuml StockToWasteUC
 
-start
+hide empty description
 
-partition StockToWaste {
-:Player wants to see a card from **Stock**;
+state OPENED_GAME_UP as "OPENED_GAME"
+state emptyStock <<choice>>
+state emptyWaste <<choice>>
+state OPENED_GAME_DOWN as "OPENED_GAME"
 
-if (Stock.hasCards) then (true)
-  :Move upper card from **Stock** to **Waste**;
-  :Show Result;
-  else (false)
-     if (Player can not move any other Card) then (true))
-        :[Game Over: Player **lost**];
-        :CLOSED_GAME;
-     endif
-endif
-}
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> emptyStock: Player asks to move a card from stock to waste
+emptyStock --> OPENED_GAME_DOWN: System shows a card from stock to waste facing up
+emptyStock --> emptyWaste: [stock.empty]
+emptyWaste --> OPENED_GAME_DOWN: System shows all cards from the waste to the stock facing down
+emptyWaste --> S2: [waste.empty]
+S2 --> OPENED_GAME_DOWN: System shows error no left cards
+OPENED_GAME_DOWN -->[*]
 
-
-stop
 @enduml

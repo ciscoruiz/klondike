@@ -1,4 +1,4 @@
-@startuml
+@startuml UseCases
 left to right direction
 
 usecase "StartGame" as StartGame

@@ -1,4 +1,4 @@
-@startuml
+@startuml DomainModel
 
 enum Suit {
  Hearts, Spades, Diamonds, Clubs

@@ -1,12 +1,12 @@
-@startuml
+@startuml StartGameUC
 
 hide empty description
 
-[*] -> INITIAL
+[*] --> INITIAL
 INITIAL --> S1: Player ask to start game
 S1 --> S2: The system shows 7 initialized piles from 1 to 7 cards with the last one facing up
-S2 --> S3: The system shows the stock with the rest of cards
-S3 --> OPENED_GAME: The system lets to MoveFromStockToWaste, MoveFromWasteToFoundation, \n MoveFromWasteToPile, MoveFromPileToFoundation, MoveFromPileToPile,\n MoveFromFoundationToPile and MoveFromWasteToStock
-OPENED_GAME -> [*]
+S2 --> S3: The system shows the stock with the rest of cards facing down
+S3 --> OPENED_GAME: The system lets to perform all Move UCs
+OPENED_GAME --> [*]
 
 @enduml
