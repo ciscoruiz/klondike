@@ -44,19 +44,28 @@ El siguiente diagrama muestra un diagrama de estado general:
 ### Start Game
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/Start.puml)
 
-### Move From Stock To Waste
+### Move from Stock to Waste
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/StockToWaste.puml)
 
+### Move from Waste to Pile
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/WasteToPile.puml)
 
+### Move from Waste to Foundation
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/WasteToFoundation.puml)
 
+### Move from Pile to Foundation
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/PileToFoundation.puml)
 
+### Move from Pile to Pile
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/PileToPile.puml)
 
+### Move from Foundation to Pile
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/FoundationToPile.puml)
 
+### Move from Waste to Stock
+![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/WasteToStock.puml)
+
+### Abort
 ![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/ciscoruiz/klondike/main/useCaseView/Abort.puml)
 
 

@@ -1,18 +1,31 @@
-@startuml
-'https://plantuml.com/activity-diagram-beta
+@startuml WasteToPileUC
 
-start
+hide empty description
 
-partition WasteToPile {
+state OPENED_GAME_UP as "OPENED_GAME"
+state emptyWaste <<choice>>
+state emptyPile <<choice>>
+state kingCard <<choice>>
+state consecutiveCards <<choice>>
+state sameColourCards <<choice>>
+state OPENED_GAME_DOWN as "OPENED_GAME"
 
-repeat
-   :Player selects **Pile**;
-repeat while (**ValidMoveChecker**) is (false)
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> emptyWaste: Player asks to move a card from waste to a pile
+emptyWaste --> S3: System requires a destination pile
+emptyWaste --> S2: [waste.empty]
+S2 --> OPENED_GAME_DOWN: System shows waste empty error
+S3 -->  emptyPile: Player introduce a destination pile
+emptyPile --> kingCard
+kingCard --> OPENED_GAME_DOWN: System shows invalid movement error
+kingCard --> S5: [waste card is a King]
+emptyPile --> consecutiveCards: [pile not empty]
+consecutiveCards --> sameColourCards: [waste card is the consecutive minor card of the destination pile card]
+consecutiveCards --> OPENED_GAME_DOWN: System shows invalid movement error
+sameColourCards --> S5: [waste card is not the same colour of the destination pile card]
+sameColourCards --> OPENED_GAME_DOWN: System shows invalid movement error
+S5 --> OPENED_GAME_DOWN: System shows the card facing up in the destination pile
 
-:Assign Card to the **Pile**;
-:Show Result;
-:OPENED_GAME;
-}
+OPENED_GAME_DOWN -->[*]
 
-stop
 @enduml

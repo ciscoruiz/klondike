@@ -1,24 +1,31 @@
-@startuml
-'https://plantuml.com/activity-diagram-beta
+@startuml WasteToFoundationUC
 
-start
+hide empty description
 
-partition WasteToFoundation {
-:Player selects the upper card on **Waste** and move it to some Foundation;
-repeat
-   :Player selects **Foundation**;
-repeat while (**ValidMoveChecker**) is (false)
-:Assign Card to the **Foundation**;
-:Show Result;
+state OPENED_GAME_UP as "OPENED_GAME"
+state emptyWaste <<choice>>
+state emptyFoundation <<choice>>
+state asCard <<choice>>
+state consecutiveCards <<choice>>
+state sameSuiteCards <<choice>>
+state OPENED_GAME_DOWN as "OPENED_GAME"
 
-if (All **Foundation** are completed) then (yes)
-   :[Game Over: Player **Wins**];
-   :CLOSED_GAME;
-else (false)
-   :OPENED_GAME;
-endif
-}
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> emptyWaste: Player asks to move a card from waste to a foundation
+emptyWaste --> S3: System requires a destination foundation
+emptyWaste --> S2: [waste.empty]
+S2 --> OPENED_GAME_DOWN: System shows waste empty error
+S3 -->  emptyFoundation: Player introduce a destination foundation
+emptyFoundation --> asCard
+asCard --> OPENED_GAME_DOWN: System shows invalid movement error
+asCard --> S5: [waste card is an As]
+emptyFoundation --> consecutiveCards: [foundation not empty]
+consecutiveCards --> sameSuiteCards: [waste card is the consecutive mayor card of the destination foundation card]
+consecutiveCards --> OPENED_GAME_DOWN: System shows invalid movement error
+sameSuiteCards --> S5: [waste card is the same suit of the destination foundation card]
+sameSuiteCards --> OPENED_GAME_DOWN: System shows invalid movement error
+S5 --> OPENED_GAME_DOWN: System shows the card facing up in the destination foundation
 
-stop
+OPENED_GAME_DOWN -->[*]
 
 @enduml

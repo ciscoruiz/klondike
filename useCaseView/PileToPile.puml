@@ -1,30 +1,37 @@
-@startuml
-'https://plantuml.com/activity-diagram-beta
+@startuml PileToPileUC
 
-start
+hide empty description
 
-partition PileToPile {
+state OPENED_GAME_UP as "OPENED_GAME"
+state emptySourcePile <<choice>>
+state samePiles <<choice>>
+state emptyDestinationPile <<choice>>
+state kingCard <<choice>>
+state consecutiveCards <<choice>>
+state sameSuiteCards <<choice>>
+state OPENED_GAME_DOWN as "OPENED_GAME"
 
-repeat
-   repeat
-      :Player selects source **Pile**;
-   repeat while (Pile.isEmpty) is (true)
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> S1: Player asks to move a card from a pile to a pile
+S1 --> S2: System requires a source pile
+S2 --> emptySourcePile: Player introduce a source pile
+emptySourcePile --> S3
+emptySourcePile --> S6: [sourcePile.empty]
+S6 --> OPENED_GAME_DOWN: System shows source pile empty error
+S3 -->  S4: System requires a destination pile
+S4 --> samePiles: Player introduce a destination pile
+samePiles --> emptyDestinationPile: [not same piles]
+samePiles --> OPENED_GAME_DOWN: System shows invalid movement error
+emptyDestinationPile --> kingCard
+kingCard --> OPENED_GAME_DOWN: System shows invalid movement error
+kingCard --> S5: [source pile card is a king]
+emptyDestinationPile --> consecutiveCards: [destinationPile not empty]
+consecutiveCards --> sameSuiteCards: [pile card is the consecutive minor card of the destination pile card]
+consecutiveCards --> OPENED_GAME_DOWN: System shows invalid movement error
+sameSuiteCards --> S5: [source pile card is not the same colour of the destination pile card]
+sameSuiteCards --> OPENED_GAME_DOWN: System shows invalid movement error
+S5 --> OPENED_GAME_DOWN: System shows the card facing up in the destination pile
 
-   repeat
-      :Player inputs number of cards \nto move;
-   repeat while (Pile.size() < input) is (true)
-
-   repeat
-      :Player selects target **Pile**;
-   repeat while (**ValidMoveChecker**) is (false)
-repeat while (Player confirms move) is (false)
-
-:Remove Cards from the source **Pile**;
-:Assign Cards to the target **Pile**;
-:Show Result;
-:OPENED_GAME;
-}
-
-stop
+OPENED_GAME_DOWN -->[*]
 
 @enduml

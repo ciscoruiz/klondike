@@ -13,7 +13,7 @@ emptyStock --> OPENED_GAME_DOWN: System shows a card from stock to waste facing 
 emptyStock --> emptyWaste: [stock.empty]
 emptyWaste --> OPENED_GAME_DOWN: System shows all cards from the waste to the stock facing down
 emptyWaste --> S2: [waste.empty]
-S2 --> OPENED_GAME_DOWN: System shows error no left cards
+S2 --> OPENED_GAME_DOWN: System shows no left cards error
 OPENED_GAME_DOWN -->[*]
 
 @enduml
