@@ -5,12 +5,12 @@ state game_over <<choice>>
 
 Initial --> OPENED_GAME : Start
 OPENED_GAME -> CLOSED_GAME : Abort
-OPENED_GAME -> game_over : PileToPile
-OPENED_GAME -> game_over : FoundationToPile
-OPENED_GAME -> game_over : WasteToFoundation
-OPENED_GAME -> game_over : WasteToPile
-OPENED_GAME -> game_over : PileToFoundation
-OPENED_GAME -> game_over : StockToWaste
+OPENED_GAME -> game_over : MovePileToPile
+OPENED_GAME -> game_over : MoveFoundationToPile
+OPENED_GAME -> game_over : MoveWasteToFoundation
+OPENED_GAME -> game_over : MoveWasteToPile
+OPENED_GAME -> game_over : MovePileToFoundation
+OPENED_GAME -> game_over : MoveStockToWaste
 
 game_over --> CLOSED_GAME : [game_over]
 game_over --> OPENED_GAME : [continue game]

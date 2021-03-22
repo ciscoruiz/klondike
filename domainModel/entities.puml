@@ -24,13 +24,13 @@ Foundation --> Suit
 
 Player..>Movement
 
-Movement <|-- FoundationToPile
-Movement <|-- PileToFoundation
-Movement <|-- PileToPile
-Movement <|-- StockToWaste
-Movement <|-- WasteToFoundation
-Movement <|-- WasteToPile
-Movement <|-- WasteToStock
+Movement <|-- MoveFoundationToPile
+Movement <|-- MovePileToFoundation
+Movement <|-- MovePileToPile
+Movement <|-- MoveStockToWaste
+Movement <|-- MoveWasteToFoundation
+Movement <|-- MoveWasteToPile
+Movement <|-- MoveWasteToStock
 
 @enduml
 
