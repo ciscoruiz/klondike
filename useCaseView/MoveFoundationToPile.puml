@@ -1,26 +1,34 @@
-@startuml
-'https://plantuml.com/activity-diagram-beta
+@startuml PileToPileUC
 
-start
+hide empty description
 
-partition FoundationToPile {
+state OPENED_GAME_UP as "OPENED_GAME"
+state emptySourceFoundation <<choice>>
+state emptyDestinationPile <<choice>>
+state kingCard <<choice>>
+state consecutiveCards <<choice>>
+state sameSuiteCards <<choice>>
+state OPENED_GAME_DOWN as "OPENED_GAME"
 
-repeat
-   repeat
-      :Player selects source **FoundationT**;
-   repeat while (FoundationT.isEmpty) is (true)
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> S1: Player asks to move a card from a foundation to a pile
+S1 --> S2: System requires a source foundation
+S2 --> emptySourceFoundation: Player introduce a source foundation
+emptySourceFoundation --> S3
+emptySourceFoundation --> S6: [sourceFoundation.empty]
+S6 --> OPENED_GAME_DOWN: System shows source pile empty error
+S3 -->  S4: System requires a destination pile
+S4 --> emptyDestinationPile: Player introduce a destination pile
+emptyDestinationPile --> kingCard
+kingCard --> OPENED_GAME_DOWN: System shows invalid movement error
+kingCard --> S5: [source pile card is a king]
+emptyDestinationPile --> consecutiveCards: [destinationPile not empty]
+consecutiveCards --> sameSuiteCards: [foundation card is the consecutive minor card of the destination pile card]
+consecutiveCards --> OPENED_GAME_DOWN: System shows invalid movement error
+sameSuiteCards --> S5: [source pile card is not the same colour of the destination pile card]
+sameSuiteCards --> OPENED_GAME_DOWN: System shows invalid movement error
+S5 --> OPENED_GAME_DOWN: System shows the card facing up in the destination pile
 
-   repeat
-      :Player selects target **Pile**;
-   repeat while (**ValidMoveChecker**) is (false)
-repeat while (Player confirms move) is (false)
+OPENED_GAME_DOWN -->[*]
 
-:Remove Card from the source **FoundationT**;
-:Assign Card to the target **Pile**;
-:Show Result;
-:OPENED_GAME;
-
-}
-
-stop
 @enduml
