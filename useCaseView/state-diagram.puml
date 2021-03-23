@@ -11,6 +11,7 @@ OPENED_GAME -> game_over : MoveWasteToFoundation
 OPENED_GAME -> game_over : MoveWasteToPile
 OPENED_GAME -> game_over : MovePileToFoundation
 OPENED_GAME -> game_over : MoveStockToWaste
+OPENED_GAME -> game_over : MoveWasteToStock
 
 game_over --> CLOSED_GAME : [game_over]
 game_over --> OPENED_GAME : [continue game]

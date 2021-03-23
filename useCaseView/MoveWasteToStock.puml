@@ -1,0 +1,12 @@
+@startuml
+hide empty description
+
+state OPENED_GAME_UP as "OPENED_GAME"
+state OPENED_GAME_DOWN as "OPENED_GAME"
+
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> S1: Player asks to get card from stock
+S1 --> S2: [stock.empty]
+S2 --> OPENED_GAME_DOWN: System moves all remaining cards in waste from waste to stock
+OPENED_GAME_DOWN -->[*]
+@enduml
