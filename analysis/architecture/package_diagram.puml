@@ -1,0 +1,13 @@
+@startuml
+package "klondike.views" #DDDDDD {
+}
+
+package "klondike.controllers" #DDDDDD {
+   class MovePileToPileController
+   class StockToWasteController
+}
+
+package "klondike.models" #DDDDDD {
+
+}
+@enduml
