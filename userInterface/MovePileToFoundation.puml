@@ -1,9 +1,9 @@
 @startsalt
 
 {
-<b>Move From Foundation to Pile
-   { Source Foundation: | ^Foundation Number 1^ }
-   { Target Pile: | ^Pile Number 1^ }
+<b>Move From Pile to Foundation
+   { Source Pile: | ^Pile Number 1^ }
+   { Target Foundation: | ^Foundation Number 1^ }
    [Ok]|[Cancel]
 }
 
