@@ -1,33 +1,40 @@
-@startuml PileToFoundationUC
+@startuml MovePileToFoundation
 
 hide empty description
 
 state OPENED_GAME_UP as "OPENED_GAME"
-state emptyPile <<choice>>
-state emptyFoundation <<choice>>
-state asCard <<choice>>
+state checkSource <<choice>>
+state CheckDestination <<choice>>
+state kingCard <<choice>>
 state consecutiveCards <<choice>>
 state sameSuiteCards <<choice>>
 state OPENED_GAME_DOWN as "OPENED_GAME"
 
 [*] --> OPENED_GAME_UP
-OPENED_GAME_UP --> S1: Player asks to move a card from a pile to a foundation
-S1 --> S2: System requires a source pile
-S2 --> emptyPile: Player introduce a source pile
-emptyPile --> S3
-emptyPile --> S6: [pile.empty]
-S6 --> OPENED_GAME_DOWN: System shows pile empty error
-S3 -->  S4: System requires a destination foundation
-S4 --> emptyFoundation: Player introduce a destination foundation
-emptyFoundation --> asCard
-asCard --> OPENED_GAME_DOWN: System shows invalid movement error
-asCard --> S5: [pile card is an As]
-emptyFoundation --> consecutiveCards: [foundation not empty]
-consecutiveCards --> sameSuiteCards: [pile card is the consecutive mayor card of the destination foundation card]
-consecutiveCards --> OPENED_GAME_DOWN: System shows invalid movement error
-sameSuiteCards --> S5: [pile card is the same suit of the destination foundation card]
-sameSuiteCards --> OPENED_GAME_DOWN: System shows invalid movement error
-S5 --> OPENED_GAME_DOWN: System shows the card facing up in the destination foundation
+OPENED_GAME_UP --> S1: Player asks to move a card from a foundation to a pile
+S1 --> S2: System requires a source Pile
+S2 --> S3: Player introduce a source Pile
+S3 --> S4 : System requires a destination Foundation
+S4 --> checkSource : Player introduces a destination Foundation
+
+checkSource --> S6: [Source Pile is empty]
+S6 -> OPENED_GAME_DOWN: System shows source pile empty error
+
+checkSource --> CheckDestination : [Source Pile is **not** empty]
+
+CheckDestination --> kingCard : [Destination Foundation is empty]
+
+kingCard -> S5 : [source foundation card is a As]
+kingCard --> S6 : [source foundation card is **not** a As]
+
+
+CheckDestination --> consecutiveCards: [Destination Foundation is **not** empty]
+consecutiveCards --> sameSuiteCards: [foundation card is the consecutive mayor\ncard of the destination pile card]
+consecutiveCards -> S6
+
+sameSuiteCards -down-> S5: [foundation card is the same\ncolour of the destination pile card]
+sameSuiteCards -down-> S6
+S5 --> OPENED_GAME_DOWN: System shows the card\nfacing up in the destination pile
 
 OPENED_GAME_DOWN -->[*]
 
