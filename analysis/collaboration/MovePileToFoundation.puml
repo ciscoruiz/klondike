@@ -1,0 +1,16 @@
+@startuml
+class MovePileToFoundationView
+class MovePileToFoundationController
+class Klondike
+circle Player
+
+Player ..> "Request" MovePileToFoundationView
+
+MovePileToFoundationView --> "Foundation getFoundation()" FoundationView
+MovePileToFoundationView --> "Pile getPile()" PileView
+
+MovePileToFoundationView ----> "bool apply(Foundation, Pile)" MovePileToFoundationController
+
+MovePileToFoundationController --> "bool moveCard(Pile, Foundation)" Klondike
+
+@enduml

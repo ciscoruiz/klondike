@@ -1,41 +1,16 @@
-@startuml MoveFoundationToPile
+@startuml
+class MoveFoundationToPileView
+class MoveFoundationToPileController
+class Klondike
+circle Player
 
-hide empty description
+Player ..> "Request" MoveFoundationToPileView
 
-state OPENED_GAME_UP as "OPENED_GAME"
-state checkSourceFoundation <<choice>>
-state checkDestinationPile <<choice>>
-state kingCard <<choice>>
-state consecutiveCards <<choice>>
-state sameSuiteCards <<choice>>
-state OPENED_GAME_DOWN as "OPENED_GAME"
+MoveFoundationToPileView --> "Foundation getFoundation()" FoundationView
+MoveFoundationToPileView --> "Pile getPile()" PileView
 
-[*] --> OPENED_GAME_UP
-OPENED_GAME_UP --> S1: Player asks to move a card from a foundation to a pile
-S1 --> S2: System requires a source foundation
-S2 --> S3: Player introduce a source foundation
-S3 --> S4 : System requires a destination pile
-S4 --> checkSourceFoundation : Player introduces a destination pile
+MoveFoundationToPileView ----> "bool apply(Foundation, Pile)" MoveFoundationToPileController
 
-checkSourceFoundation --> S6: [Source foundation is empty]
-S6 -> OPENED_GAME_DOWN: System shows source pile empty error
-
-checkSourceFoundation --> checkDestinationPile : [Source foundation is **not** empty]
-
-checkDestinationPile --> kingCard : [Destination pile is empty]
-
-kingCard -> S5 : [source foundation card is a king]
-kingCard --> S6 : [source foundation card is not a king]
-
-
-checkDestinationPile --> consecutiveCards: [Destination pile is **not** empty]
-consecutiveCards --> sameSuiteCards: [foundation card is the consecutive minor\ncard of the destination pile card]
-consecutiveCards -> S6
-
-sameSuiteCards -down-> S5: [foundation card is the same\ncolour of the destination pile card]
-sameSuiteCards -down-> S6
-S5 --> OPENED_GAME_DOWN: System shows the card\nfacing up in the destination pile
-
-OPENED_GAME_DOWN -->[*]
+MoveFoundationToPileController --> "bool moveCard(Foundation, Pile)" Klondike
 
 @enduml
