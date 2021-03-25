@@ -2,6 +2,15 @@
 package "klondike.views" #DDDDDD {
    class MoveFoundationToPileView
    class MovePileToFoundationView
+
+   class PileView
+   class FoundationView
+
+   MoveFoundationToPileView -down-> PileView
+   MoveFoundationToPileView -down-> FoundationView
+
+   MovePileToFoundationView -down-> PileView
+   MovePileToFoundationView -down-> FoundationView
 }
 
 package "klondike.controllers" #DDDDDD {
