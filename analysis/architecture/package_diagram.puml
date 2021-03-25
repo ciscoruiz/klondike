@@ -1,13 +1,38 @@
 @startuml
 package "klondike.views" #DDDDDD {
+   class MoveFoundationToPileView
+   class MovePileToFoundationView
 }
 
 package "klondike.controllers" #DDDDDD {
+   class MoveFoundationToPileController
+   class MovePileToFoundationController
    class MovePileToPileController
    class StockToWasteController
 }
 
 package "klondike.models" #DDDDDD {
 
+   enum Suit {
+    Hearts, Spades, Diamonds, Clubs
+   }
+
+   Card --> Suit
+
+   Group -> "*" Card
+   Group <|-down- Pile
+   Group <|-down- Stock
+   Group <|-down- Waste
+   Group <|-down- Foundation
+
+
+   Tableaux *-down-> "7" Pile
+   Klondike *-down-> "1" Stock
+   Klondike *-down-> "1" Waste
+   Klondike *-down-> "1" Tableaux
+   Klondike *-down-> "4" Foundation
+
+   Foundation --> Suit
 }
+
 @enduml
