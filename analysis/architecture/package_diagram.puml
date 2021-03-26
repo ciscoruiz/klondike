@@ -17,7 +17,7 @@ package "klondike.controllers" #DDDDDD {
    class MoveFoundationToPileController
    class MovePileToFoundationController
    class MovePileToPileController
-   class StockToWasteController
+   class MoveStockToWasteController
 }
 
 package "klondike.models" #DDDDDD {
