@@ -1,0 +1,19 @@
+@startuml
+class MovePileToPileView
+class MovePileToPileController
+class Klondike
+class Pile
+circle Player
+
+Player ..> "Request" MovePileToPileView
+
+MovePileToPileView --> "Pile getOriginPile(pileId)" Klondike
+MovePileToPileView --> "Pile getDestinationPile(pileId)" Klondike
+Klondike --> "Pile getPile(pileId)" Pile
+
+MovePileToPileView ----> "bool apply(Pile, Pile)" MovePileToPileController
+
+MovePileToPileController --> "bool moveCard(Pile, Pile)" Klondike
+Klondike --> "bool removeFromPile()" Pile
+Klondike --> "bool addToPile()" Pile
+@enduml

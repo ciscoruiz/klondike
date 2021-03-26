@@ -1,0 +1,21 @@
+@startuml
+class MoveStockToWasteView
+class MoveStockToWasteController
+class Klondike
+class Waste
+class Stock
+circle Player
+
+Player ..> "Request" MoveStockToWasteView
+
+MoveStockToWasteView --> "Stock getStock()" Klondike
+Klondike --> "Stock getStock()" Stock
+Klondike --> "Waste getWaste()" Waste
+
+MoveStockToWasteView ----> "bool apply(Stock, Waste)" MoveStockToWasteController
+
+MoveStockToWasteController --> "bool moveCard(Stock, Waste)" Klondike
+Klondike --> "bool removeFromStock()" Stock
+
+Klondike --> "bool addToWaste()" Waste
+@enduml
