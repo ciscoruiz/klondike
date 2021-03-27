@@ -2,6 +2,7 @@
 package "klondike.views" #DDDDDD {
    class MoveFoundationToPileView
    class MovePileToFoundationView
+   class MoveWasteToStockView
 
    class PileView
    class FoundationView
@@ -18,6 +19,7 @@ package "klondike.controllers" #DDDDDD {
    class MovePileToFoundationController
    class MovePileToPileController
    class MoveStockToWasteController
+   class MoveWasteToStockController
 }
 
 package "klondike.models" #DDDDDD {
