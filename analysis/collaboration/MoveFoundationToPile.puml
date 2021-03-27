@@ -6,11 +6,25 @@ circle Player
 
 Player ..> "Request" MoveFoundationToPileView
 
-MoveFoundationToPileView --> "Foundation getFoundation()" FoundationView
-MoveFoundationToPileView --> "Pile getPile()" PileView
+MoveFoundationToPileView --> "int getFoundation()" FoundationView
+MoveFoundationToPileView --> "int getPile()" PileView
 
-MoveFoundationToPileView ----> "bool apply(Foundation, Pile)" MoveFoundationToPileController
+MoveFoundationToPileView ----> "bool apply(nfoundation, npile)" MoveFoundationToPileController
 
-MoveFoundationToPileController --> "bool moveCard(Foundation, Pile)" Klondike
+MoveFoundationToPileController --> "bool moveFoundationToPile(nfoundation, npile)" Klondike
+
+class Klondike {
+   Foundation getFoundation(int nfoundation);
+}
+
+Klondike --> "Pile getPile(npile)" Tableaux
+
+Klondike ---> "//bool isEmpty()//\n//Card getFirstCard()//\n//void removeFirstCard()//" Foundation
+Klondike ---> "//bool isEmpty()//\n//Card getLastCard()//\n//void storeCard(Card)//" Pile
+
+Foundation --> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Group
+Pile  --> "bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)" Group
+
+Klondike -----> "bool isConsecutiveMinor(Card)\nbool hasSameColor(Card)\nbool isAKing()" Card
 
 @enduml
