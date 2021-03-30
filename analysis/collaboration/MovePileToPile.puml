@@ -14,6 +14,5 @@ Klondike --> "Pile getPile(pileId)" Pile
 MovePileToPileView ----> "bool apply(Pile, Pile)" MovePileToPileController
 
 MovePileToPileController --> "bool moveCard(Pile, Pile)" Klondike
-Klondike --> "bool removeFromPile()" Pile
-Klondike --> "bool addToPile()" Pile
+Klondike --> "bool removeFromPile()\nbool addToPile()" Pile
 @enduml
