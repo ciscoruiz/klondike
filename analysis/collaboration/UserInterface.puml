@@ -1,0 +1,18 @@
+@startsalt
+{+
+{* File
+ File | New Game| Quit }
+
+ {/ Moves }
+ {
+ [Move from pile to pile]
+ [Move from pile to foundation]
+ [Move from foundation to pile]
+ [Move from stock to waste]
+ [Move from waste to foundation]
+ [Move from waste to pile]
+ [Move from waste to stock]
+ }
+ }
+
+ @endsalt
