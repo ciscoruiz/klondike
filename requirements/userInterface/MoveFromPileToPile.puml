@@ -1,0 +1,9 @@
+@startsalt
+
+{
+<b>Move From Pile to Pile
+   { Source Pile: | ^Pile Number 1^ }
+   { Target Pile: | ^Pile Number 1^ }
+     [Ok]|[Cancel]
+}
+@endsalt

@@ -1,0 +1,8 @@
+@startsalt
+
+{
+<b>Show card from Stock
+   [Ok]|[Cancel]
+}
+
+@endsalt
