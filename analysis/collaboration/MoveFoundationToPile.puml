@@ -7,20 +7,18 @@ circle Player
 Player ..> "Request" MoveFoundationToPileView
 
 MoveFoundationToPileView --> FoundationView
-note on link: int getFoundation()
+note on link: int getFoundation()\nvoid show(foundation)
 
 MoveFoundationToPileView --> PileView
-note on link: int getPile()
+note on link: int getPile()\nvoid show(pile)
 
 MoveFoundationToPileView ---->  MoveFoundationToPileController
 note on link: bool apply(nfoundation, npile)
 
 MoveFoundationToPileController --> Klondike
-note on link: bool moveFoundationToPile(nfoundation, npile)
+note on link: bool moveFoundationToPile(nfoundation, npile)\nPile getPile(npile)\nFoundation getFoundation(nfoundation)
 
-class Klondike {
-   Foundation getFoundation(int nfoundation);
-}
+class Klondike
 
 Klondike --> Tableaux
 note on link: Pile getPile(npile)
