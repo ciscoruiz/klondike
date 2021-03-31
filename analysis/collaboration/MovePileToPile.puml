@@ -7,12 +7,18 @@ circle Player
 
 Player ..> "Request" MovePileToPileView
 
-MovePileToPileView --> "Pile getOriginPile(pileId)" Klondike
-MovePileToPileView --> "Pile getDestinationPile(pileId)" Klondike
-Klondike --> "Pile getPile(pileId)" Pile
+MovePileToPileView --> MovePileToPileController
+note on link: bool apply(Pile, Pile)
 
-MovePileToPileView ----> "bool apply(Pile, Pile)" MovePileToPileController
+MovePileToPileController --> Klondike
+note on link: bool movePileToPile(originPile, destPile)
 
-MovePileToPileController --> "bool moveCard(Pile, Pile)" Klondike
-Klondike --> "bool removeFromPile()\nbool addToPile()" Pile
+MovePileToPileView --> Klondike
+note on link: Pile getOriginPile(pileId) \nPile getDestinationPile(pileId)
+
+MovePileToPileView --> PileView
+note on link: void showPile(pileId)
+
+Klondike --> Pile
+note on link: Pile getPile(pileId)
 @enduml

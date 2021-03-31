@@ -8,14 +8,23 @@ circle Player
 
 Player ..> "Request" MoveStockToWasteView
 
-MoveStockToWasteView --> "Stock getStock()" Klondike
-Klondike --> "Stock getStock()" Stock
-Klondike --> "Waste getWaste()" Waste
+MoveStockToWasteView --> Klondike
+note on link: Stock getStock()\nWaste getWaste()
 
-MoveStockToWasteView ----> "bool apply(Stock, Waste)" MoveStockToWasteController
+Klondike --> Stock
+note on link: Stock getStock()\nbool removeFromStock()
+Klondike --> Waste
+note on link: Waste getWaste()\nbool addToWaste()
 
-MoveStockToWasteController --> "bool moveCard(Stock, Waste)" Klondike
-Klondike --> "bool removeFromStock()" Stock
+MoveStockToWasteView ----> MoveStockToWasteController
+note on link: bool apply(Stock, Waste)
 
-Klondike --> "bool addToWaste()" Waste
+MoveStockToWasteController --> Klondike
+note on link: bool moveCard(Stock, Waste)
+
+MoveStockToWasteView --> WasteView
+note on link: void showWaste()
+
+MoveStockToWasteView --> StockView
+note on link: void showStock()
 @enduml
