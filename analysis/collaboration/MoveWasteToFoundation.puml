@@ -1,0 +1,35 @@
+@startuml
+class MoveWasteToFoundationView
+class MoveWasteToFoundationController
+class Klondike
+circle Player
+
+Player ..> "Request" MoveWasteToFoundationView
+
+MoveWasteToFoundationView --> WasteView
+note on link: int getWaste()\nvoid show(waste)
+
+MoveWasteToFoundationView --> FoundationView
+note on link: int getFoundation()\nvoid show(foundation)
+
+MoveWasteToFoundationView ---->  MoveWasteToFoundationController
+note on link: bool apply(nwaste, nfoundation)
+
+MoveWasteToFoundationController --> Klondike
+note on link: bool moveWasteToFoundation(nwaste, nfoundation)\nFoundation getFoundation(nfoundation)\nWaste getWaste(nwaste)
+
+class Klondike
+
+Klondike --> Tableaux
+note on link: Foundation getFoundation(nfoundation)
+
+Klondike --->  Waste
+note on link: bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()
+
+Klondike ---> Foundation
+note on link: bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)
+
+Klondike --> Card
+note on link: bool isConsecutiveMayor(Card)\nbool hasSameSuite(Card)\nbool isAnAs()
+
+@enduml

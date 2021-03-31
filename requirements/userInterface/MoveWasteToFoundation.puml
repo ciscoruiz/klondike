@@ -1,0 +1,9 @@
+@startsalt
+
+{
+<b>Move From Waste to Foundation
+   { Target Foundation: | ^Foundation Number 1^ }
+   [Ok]|[Cancel]
+}
+
+@endsalt

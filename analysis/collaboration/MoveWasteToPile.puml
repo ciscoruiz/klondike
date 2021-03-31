@@ -1,0 +1,35 @@
+@startuml
+class MoveWasteToPileView
+class MoveWasteToPileController
+class Klondike
+circle Player
+
+Player ..> "Request" MoveWasteToPileView
+
+MoveWasteToPileView --> WasteView
+note on link: int getWaste()\nvoid show(waste)
+
+MoveWasteToPileView --> PileView
+note on link: int getPile()\nvoid show(pile)
+
+MoveWasteToPileView ---->  MoveWasteToPileController
+note on link: bool apply(nwaste, npile)
+
+MoveWasteToPileController --> Klondike
+note on link: bool moveWasteToPile(nwaste, npile)\nPile getPile(npile)\nWaste getWaste(nwaste)
+
+class Klondike
+
+Klondike --> Tableaux
+note on link: Pile getPile(npile)
+
+Klondike --->  Waste
+note on link: bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()
+
+Klondike ---> Pile
+note on link: bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)
+
+Klondike --> Card
+note on link: bool isConsecutiveMinor(Card)\nbool hasSameColor(Card)\nbool isAKing()
+
+@enduml

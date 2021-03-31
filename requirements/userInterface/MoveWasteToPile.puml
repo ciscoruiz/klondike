@@ -1,0 +1,9 @@
+@startsalt
+
+{
+<b>Move From Waste to Pile
+   { Target Pile: | ^Pile Number 1^ }
+   [Ok]|[Cancel]
+}
+
+@endsalt
