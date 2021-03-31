@@ -12,10 +12,7 @@ MoveWasteToStockView --> "bool apply()" MoveWasteToStockController
 
 MoveWasteToStockController --> "bool moveWasteToStock()" Klondike
 
-Klondike --> "//bool isEmpty()//\n//Card getFirstCard()//\n//void removeFirstCard()//" Waste
-Klondike --> "//void storeCard(Card)//" Stock
-
-Waste --> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Group
-Stock --> "void storeCard(Card)" Group
+Klondike --> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Waste
+Klondike --> "void storeCard(Card)" Stock
 
 @enduml

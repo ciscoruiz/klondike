@@ -19,12 +19,9 @@ class Klondike {
 
 Klondike --> "Pile getPile(npile)" Tableaux
 
-Klondike ---> "//bool isEmpty()//\n//Card getFirstCard()//\n//void removeFirstCard()//" Pîle
-Klondike ---> "//bool isEmpty()//\n//Card getLastCard()//\n//void storeCard(Card)//" Foundation
+Klondike ---> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Pîle
+Klondike ---> "bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)" Foundation
 
-Pile --> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Group
-Foundation --> "bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)" Group
-
-Klondike -----> "bool isConsecutiveMayor(Card)\nbool hasSameColor(Card)\nbool isAs()" Card
+Klondike --> "bool isConsecutiveMayor(Card)\nbool hasSameColor(Card)\nbool isAs()" Card
 
 @enduml
