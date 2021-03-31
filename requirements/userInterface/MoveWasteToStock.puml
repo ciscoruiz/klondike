@@ -1,0 +1,8 @@
+@startsalt
+
+{
+<b>Show card from Waste
+   [Ok]|[Cancel]
+}
+
+@endsalt
