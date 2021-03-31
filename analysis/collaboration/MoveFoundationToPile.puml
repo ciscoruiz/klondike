@@ -6,22 +6,32 @@ circle Player
 
 Player ..> "Request" MoveFoundationToPileView
 
-MoveFoundationToPileView --> "int getFoundation()" FoundationView
-MoveFoundationToPileView --> "int getPile()" PileView
+MoveFoundationToPileView --> FoundationView
+note on link: int getFoundation()
 
-MoveFoundationToPileView ----> "bool apply(nfoundation, npile)" MoveFoundationToPileController
+MoveFoundationToPileView --> PileView
+note on link: int getPile()
 
-MoveFoundationToPileController --> "bool moveFoundationToPile(nfoundation, npile)" Klondike
+MoveFoundationToPileView ---->  MoveFoundationToPileController
+note on link: bool apply(nfoundation, npile)
+
+MoveFoundationToPileController --> Klondike
+note on link: bool moveFoundationToPile(nfoundation, npile)
 
 class Klondike {
    Foundation getFoundation(int nfoundation);
 }
 
-Klondike --> "Pile getPile(npile)" Tableaux
+Klondike --> Tableaux
+note on link: Pile getPile(npile)
 
-Klondike ---> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Foundation
-Klondike ---> "bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)" Pile
+Klondike --->  Foundation
+note on link: bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()
 
-Klondike --> "bool isConsecutiveMinor(Card)\nbool hasSameColor(Card)\nbool isAKing()" Card
+Klondike ---> Pile
+note on link: bool isEmpty()\nCard getLastCard()\nvoid storeCard(Card)
+
+Klondike --> Card
+note on link: bool isConsecutiveMinor(Card)\nbool hasSameColor(Card)\nbool isAKing()
 
 @enduml

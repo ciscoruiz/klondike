@@ -8,11 +8,16 @@ circle Player
 
 Player ..> "Request" MoveWasteToStockView
 
-MoveWasteToStockView --> "bool apply()" MoveWasteToStockController
+MoveWasteToStockView --> MoveWasteToStockController
+note on link: bool apply()
 
-MoveWasteToStockController --> "bool moveWasteToStock()" Klondike
+MoveWasteToStockController --> Klondike
+note on link: bool moveWasteToStock()
 
-Klondike --> "bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()" Waste
-Klondike --> "void storeCard(Card)" Stock
+Klondike --> Waste
+note on link: bool isEmpty()\nCard getFirstCard()\nvoid removeFirstCard()
+
+Klondike --> Stock
+note on link: void storeCard(Card)
 
 @enduml
