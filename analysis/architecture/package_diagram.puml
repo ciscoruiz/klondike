@@ -1,5 +1,6 @@
 @startuml
-package "klondike.views" #DDDDDD {
+
+package klondike.views #DDDDDD {
    class MoveFoundationToPileView
    class MovePileToFoundationView
    class MoveWasteToStockView
@@ -23,17 +24,22 @@ package "klondike.controllers" #DDDDDD {
 }
 
 package "klondike.models" #DDDDDD {
+   enum Color {
+      Red, Black
+   }
 
    enum Suit {
     Hearts, Spades, Diamonds, Clubs
+    Color getColor(Suit)
    }
 
    Card --> Suit
+   Suit ..> Color
 
    Group -> "*" Card
-   Group <|-down- Pile
-   Group <|-down- Stock
-   Group <|-down- Waste
+   Group <|-down-- Pile
+   Group <|-down-- Stock
+   Group <|-down-- Waste
    Group <|-down- Foundation
 
 
@@ -45,5 +51,8 @@ package "klondike.models" #DDDDDD {
 
    Foundation --> Suit
 }
+
+klondike.views ..> klondike.controllers
+klondike.controllers ..> klondike.models
 
 @enduml
