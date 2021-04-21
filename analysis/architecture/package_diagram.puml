@@ -3,6 +3,8 @@
 package klondike.views #DDDDDD {
    class MoveFoundationToPileView
    class MovePileToFoundationView
+   class MovePileToPileView
+   class MoveStockToWasteView
    class MoveWasteToStockView
    class MoveWasteToPileView
    class MoveWasteToFoundationView
@@ -18,8 +20,19 @@ package klondike.views #DDDDDD {
    MovePileToFoundationView -down-> PileView
    MovePileToFoundationView -down-> FoundationView
 
+   MovePileToPileView -down-> PileView
+
+   MoveStockToWasteView -down-> StockView
+   MoveStockToWasteView -down-> WasteView
+
    MoveWasteToStockView -down-> WasteView
    MoveWasteToStockView -down-> StockView
+
+   MoveWasteToPileView -down-> WasteView
+   MoveWasteToPileView -down-> PileView
+
+   MoveWasteToFoundationView -down-> WasteView
+   MoveWasteToFoundationView -down-> FoundationView
 }
 
 package "klondike.controllers" #DDDDDD {

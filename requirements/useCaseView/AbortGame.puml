@@ -1,0 +1,10 @@
+@startuml AbortGameUC
+
+hide empty description
+
+[*] --> OPENED_GAME
+OPENED_GAME --> S1: Player ask to abort game
+S1 --> CLOSED_GAME: The system aborts the game and does not let to perform any movement
+CLOSED_GAME --> [*]
+
+@enduml

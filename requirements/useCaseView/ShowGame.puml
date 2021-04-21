@@ -1,0 +1,21 @@
+@startuml ShowGameUC
+
+hide empty description
+
+state OPENED_GAME_UP as "OPENED_GAME"
+state OPENED_GAME_DOWN as "OPENED_GAME"
+state game_over <<choice>>
+state winner <<choice>>
+
+[*] --> OPENED_GAME_UP
+OPENED_GAME_UP --> S1: System shows the piles, stock, waste and foundations
+S1 --> game_over: System checks if game is over
+game_over --> OPENED_GAME_DOWN: The system lets to perform all Move UCs
+game_over --> S2: [game over]
+S2 --> winner: System checks if player is winner
+winner --> CLOSED_GAME: System shows "You WIN"
+winner --> CLOSED_GAME: System shows "You LOSE"
+OPENED_GAME_DOWN --> [*]
+CLOSED_GAME --> [*]
+
+@enduml
